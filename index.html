@@ -1,260 +1,74 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Zhongping Zhang's homepage</title>
-    <style type="text/css">
-	body {
-		font-family: Times New Roman, sans-serif;
-		font-size: 1em;
-        hyphens: auto;
-	}
-	.name {
-		font-family: Times New Roman, sans-serif;
-		font-size: 1.6em;
-		font-weight: bold;
-	}
-	.contact {
-		font-family: Verdana, sans-serif;
-		font-size: .8em;
-		font-weight: normal;
-	}
-	
-	.fakelink {
-		color: blue;
-		text-decoration: underline;
-		cursor: pointer;
-	}
-    </style>
-	
-	
-	<script>
-	function displayBlock(div_id) {
-		var x = document.getElementById(div_id);
-		if (x.style.display === "none") {
-		x.style.display = "block";
-		} 
-		else {
-		x.style.display = "none";
-		}
-		}
-</script>
-	
-	
+<html>
+
+<head>
+    <title> Zhongping Zhang</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function displayBlock(div_id) {
+            var x = document.getElementById(div_id);
+            if (x.style.display === "none") {
+            x.style.display = "block";
+            } 
+            else {
+            x.style.display = "none";
+            }
+            }
+    </script>
 </head>
+    
+<body>  
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<body>
+    <div class="container">
+        <div class="col-xs-4">
+            <img id="me-img" src="images/selfie.jpg" style="position:relative;left:40px;top:20px;">
+        </div>
 
+        <div class="col-xs-8">
+            <h2>Zhongping Zhang</h2>
+            <p>
+                I am a second year Ph.D. student in the Department of <a href="https://www.bu.edu/cs/profiles/zhongping-zhang/">Computer Science</a> at Boston University. My advisor is Prof. <a href="http://bryanplummer.com/" target="_blank">Bryan Plummer</a>. I received my bachelor's degree from Harbin Institute of Technology in 2016, and my master degree from University of Rochester in 2018. My research interest spans Computer Vision and its relations to Data Mining, Image Processing, Natural Language Processing, etc.
+            </p>
+            <br/>
+            <a href="Zhongping_CV.pdf" target="_blank">CV</a>,
+            <a href="mailto:zpzhang@bu.edu">Email</a>, 
+            <a href="https://github.com/Zhongping-Zhang" target="_blank">Github</a>, 
+            <a href="https://scholar.google.com/citations?user=6C20vTwAAAAJ&hl=en" target="_blank">Google Scholar</a>,  
+            <a class='fakelink' onclick='displayBlock("orcid")'>ORCID</a>
+            <div id='orcid' style='display: none'>
+            0000-0002-6274-190X
+            <br></div>
+        </div>
+    </div>
 
-<table align="justify" border="0" cellpadding="20">
-<tbody><tr>
-    <td>
-        <img src="images/selfie.jpg" width="300" alt="Zhongping Zhang">
-        <br>
-    </td>
-    <td width="500">
-        <span class="name">Zhongping Zhang</span>
-		
-		
-		
-		
-		<br><br>
-		I am a first year Ph.D. student in the Department of Computer Science at Boston University. My advisor is Prof. <a href="http://bryanplummer.com/" target="_blank">Bryan Plummer</a>. I received my bachelor's degree from Harbin Institute of Technology in 2016, and my master degree from University of Rochester in 2018. My research interest spans Computer Vision and its relations to Data Mining, Image Processing, Natural Language Processing, etc.
+    
+    <div class="container">
+        <h3 class="row work-block">News</h3>
+        <ul>
+            <li id="li"> <font color="red"><i class="fas fa-rss-square"></i> 2020.02 &nbsp;</font>  I will work as a research intern at Kwai Inc. (Palo Alto, CA) in summer 2020! </li>
+        </ul>
+    </div>
 
-        My CV can be found <a href="Zhongping_CV.pdf" target="_blank">here</a>.
-		
-		<tr><td align="center">
-			<a href="https://www.bu.edu/cs/profiles/zhongping-zhang/">BU CS</a>, 
-			<a href="mailto:zpzhang@bu.edu">Email</a>, 
-			<a href="https://github.com/Zhongping-Zhang" target="_blank">Github</a>, 
-			<a href="https://scholar.google.com/citations?user=6C20vTwAAAAJ&hl=en" target="_blank">Google Scholar</a> 
-                                
-        <tr><!--<td><br></td>--></tr>
-							
-		
-		
-	
-							
-							
-							
-							
-	</td>
-		</tr>
-</tbody></table>
-
-<table>
-<tbody><tr>
-  <td> 
-     <h2>Selected Publications</h2>
-     <h3>Conference Papers</h3>
-      <ul><p></p>
-		<li><b>Adaptive Filtering for Event Recognition from Noisy Signal: An Application to Earthquake Detection</b>
-		[<a href='http://150.162.46.34:8080/icassp2019/ICASSP2019/pdfs/0003327.pdf' style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("zhang2019adaptive")'>bibtex</a>]
-		<div id='zhang2019adaptive' style='display: none'>
-		@inproceedings{zhang2019adaptive,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			title={Adaptive Filtering for Event Recognition from Noisy Signal: an Application to Earthquake Detection},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			author={Zhang, Zhongping and Lin, Youzuo and Zhou, Zheng and Chen, Tianlang},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			booktitle={ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			pages={3327--3331},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			year={2019},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			organization={IEEE}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		<br></div>
-		<br>
-		
-		
-		<b>Zhongping Zhang</b>, Youzuo Lin, Zheng Zhou, and Tianlang Chen<br>
-		IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2019.</li><br>
-
-		<li><b>VelocityGAN: Subsurface Velocity Image Estimation Using Conditional Adversarial Networks</b>
-		[<a href="https://arxiv.org/pdf/1809.10262.pdf" style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("1_kimMULE2020")'>bibtex</a>]
-		<div id='1_kimMULE2020' style='display: none'>
-		@inproceedings{zhang2019velocitygan,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			title={VelocityGAN: Subsurface Velocity Image Estimation Using Conditional Adversarial Networks},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			author={Zhang, Zhongping and Wu, Yue and Zhou, Zheng and Lin, Youzuo},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			booktitle={2019 IEEE Winter Conference on Applications of Computer Vision (WACV)},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			pages={705--714},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			year={2019},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			organization={IEEE}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		<br></div>
-		<br>
-		<b>Zhongping Zhang</b>, Yue Wu, Zheng Zhou, Youzuo Lin<br>
-		IEEE Winter Conference on Computer Vision (WACV), 2018.</li><br>
-		
-		
-		
-		
-		<li><b>How to Become Instagram Famous: Post Popularity Prediction with Dual-Attention</b>
-		[<a href="https://arxiv.org/pdf/1809.09314.pdf" style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("zhang2018become")'>bibtex</a>]
-		<div id='zhang2018become' style='display: none'>
-		@inproceedings{zhang2018become,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			title={How to Become Instagram Famous: Post Popularity Prediction with Dual-Attention},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			author={Zhang, Zhongping and Chen, Tianlang and Zhou, Zheng and Li, Jiaxin and Luo, Jiebo},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			booktitle={2018 IEEE International Conference on Big Data (Big Data)},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			pages={2383--2392},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			year={2018},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			organization={IEEE}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		
-		<br></div>
-		<br>
-		<b>Zhongping Zhang</b>, Tianlang Chen, Zheng Zhou, Jiaxin Li, and Jiebo Luo<br>
-		IEEE International Conference on Big Data (Big Data), 2018.</li><br>
-
-		<li><b>"Factual" or "Emotional": Stylized Image Captioning with Adaptive Learning and Attention</b>
-		[<a href='http://openaccess.thecvf.com/content_ECCV_2018/papers/Tianlang_Chen_Factual_or_Emotional_ECCV_2018_paper.pdf' style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("chen2018factual")'>bibtex</a>]
-		<div id='chen2018factual' style='display: none'>
-		@inproceedings{chen2018factual,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			title={``Factual''or``Emotional'': Stylized Image Captioning with Adaptive Learning and Attention},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			author={Chen, Tianlang and Zhang, Zhongping and You, Quanzeng and Fang, Chen and Wang, Zhaowen and Jin, Hailin and Luo, Jiebo},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			pages={519--535},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			year={2018}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		<br></div>
-		<br>
-		Tianlang Chen, <b>Zhongping Zhang</b>, Quanzeng You, Chen Fang, Zhaowen Wang, Hailin Jin, and Jiebo Luo<br>
-		European Conference on Computer Vision (ECCV), 2018.</li><br>
-
-		<li><b>Boundary-based Image Forgery Detection by Fast Shallow CNN</b>
-		[<a href='https://arxiv.org/pdf/1801.06732.pdf' style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("zhang2018boundary")'>bibtex</a>]
-		<div id='zhang2018boundary' style='display: none'>
-		@inproceedings{zhang2018boundary,
-			title={Boundary-based image forgery detection by fast shallow cnn},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			author={Zhang, Zhongping and Zhang, Yixuan and Zhou, Zheng and Luo, Jiebo},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			booktitle={2018 24th International Conference on Pattern Recognition (ICPR)},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			pages={2658--2663},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			year={2018},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			organization={IEEE}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		<br></div>
-		<br>
-		<b>Zhongping Zhang</b>, Yixuan Zhang, Zheng Zhou, Jiebo Luo<br>
-		International Conference on Pattern Recognition (ICPR), 2018.</li><br>
-
-    <p></p></ul>
-
-     <h3>Journal Articals</h3>
-	 <ul><p></p>
-	    <li><b>Automatic Detection of Particle Size Distribution by Image Analysis Based on Local Adaptive Canny Edge Detection and Modified Circular Hough Transform</b>
-        [<a href='https://www.sciencedirect.com/science/article/pii/S0968432817303086' style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("meng2018automatic")'>bibtex</a>]
-		<div id='meng2018automatic' style='display: none'>
-		@article{meng2018automatic,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		title={Automatic detection of particle size distribution by image analysis based on local adaptive canny edge detection and modified circular Hough transform},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		author={Meng, Yingchao and Zhang, Zhongping and Yin, Huaqiang and Ma, Tao},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		journal={Micron},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		volume={106},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		pages={34--41},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		year={2018},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		publisher={Elsevier}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		<br></div>
-		<br>
-		Yingchao Meng,* <b>Zhongping Zhang</b>*, Huaqiang Yin, and Tao Ma (* Equal contribution)<br>
-		Micron, 2018.</li><br>
-
-	    <li><b>Earthquake Detection in 1-D Time Series Data with Feature Selection and Dictionary Learning</b>
-		[<a href='https://www.sciencedirect.com/science/article/pii/S1750583619301239' style='font-size: 16px;'>paper</a>]
-		[<a class='fakelink' onclick='displayBlock("zhou2019data")'>bibtex</a>]
-		<div id='zhou2019data' style='display: none'>
-		@article{zhou2019data,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		title={A data-driven CO2 leakage detection using seismic data and spatial--temporal densely connected convolutional neural networks},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		author={Zhou, Zheng and Lin, Youzuo and Zhang, Zhongping and Wu, Yue and Wang, Zan and Dilmore, Robert and Guthrie, George},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		journal={International Journal of Greenhouse Gas Control},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		volume={90},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		pages={102790},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		year={2019},<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		publisher={Elsevier}<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		}
-		</div>
-		<br>
-		Zheng Zhou, <b>Zhongping Zhang</b>, Yue Wu, Paul Johnson, and Youzuo Lin <br>
-		Seismological Research Letters (SRL), 2018.</li><br>
+                
 
 
-    <p></p></ul>
-
-    <h2>Services</h2>
-    <ul><p></p>
-        <li>Reviewer:<br>ICPR-2018, Micron;</li>
-        <li>Teaching Fellow:<br>[2019] CS101 - Introduction to Computer Science; <br>
-		<li>Teaching Assistant:<br>[2018] ECE210 - Circuits & Microcontrollers for Engineers <br>[2017] ECE101 - Introduction to Signals & Circuits</li>
-    <p></p></ul>
-	<img align="TOP" src="images/computer_dog.gif" width="100" height="100">
-    <!--
-	<h2>Honors and awards</h2>
-    <ul><p></p>
-        <li>ICLR 2019 Travel Award</li>
-        <li>Outstanding Master Dissertation Award of Beihang University</li>
-        <li>Chinese National Scholarship</li>
-        <li>Google Excellence Scholarship</li>
-    <p></p></ul>
-	-->
-	
-</tbody></table>
-
-<hr align="left" noshade="noshade" size="1" width="100%">
-
-<!--
-	<h2>Contact:</h2>
-        <span class="contact">
-		<ul><p></p>
-		<li><a href="https://www.bu.edu/cs/profiles/zhongping-zhang/">BU CS</a> </li>
-		<br>
-		<li><a href="mailto:zpzhang@bu.edu" class="btn btn-theme">Email</a></li>
-        <br>
-        <li><a href="https://github.com/Zhongping-Zhang" target="_blank">Github</a></li>
-        <br>
-        <li><a href="https://scholar.google.com/citations?user=6C20vTwAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-        <br><br>
-       
-		<p></p></ul>
-        </span>
--->
-<div id="clustrmaps-widget"></div><script type="text/javascript">var _clustrmaps = {'url' : 'http://www.cs.rochester.edu/u/hyang36', 'user' : 1178487, 'server' : '3', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2015-09-10', 'lang' : 'zh', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www3.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www3.clustrmaps.com/user/2a311fb77"><img src="http://www3.clustrmaps.com/stats/maps-no_clusters/www.cs.rochester.edu-u-hyang36-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>
-</body></html>
-
+</body>
+    
+    
+    
+</html>

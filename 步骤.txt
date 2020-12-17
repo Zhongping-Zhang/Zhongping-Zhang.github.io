@@ -1,0 +1,7 @@
+git add .
+git commmit -m "first version"
+git push
+
+
+
+主html要用index.html来表示

@@ -1,0 +1,93 @@
+body {    /*body部分文字格式*/
+    padding: 0;
+    margin: 0;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: black;
+}
+
+
+.navbar,  /*navbar格式*/
+.footer {
+    background-color: black;
+    color: white;    
+}
+/*
+.navbar .nav>li>a:focus {
+    color: black;
+}
+*/
+.navbar .nav>li>a:hover { /*navbar 被选定时字体颜色*/
+    color: black;
+}
+.navbar .nav>li>a {
+    color: white; /*navbar 字体颜色*/
+}
+
+
+.gray-container {  /*container背景颜色*/
+    background-color: gray;
+}
+#about {  /*container位置信息*/
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+
+#me-img { /*个人image 信息*/
+    width: 65%;
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.7), 0px 0px 10px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.work-img {  /*publication image 信息*/
+    width: 210px;
+/*    height: 140px;*/
+    height: auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.detail {
+    font-size: 13px;
+    border: 1px solid #FFFFAA;
+    background-color: #FFFFEE;
+}
+
+.prize {
+    color: #B02020;
+    font-weight: bold;
+}
+
+.work-block {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.section_title {
+    /*color: #159957;*/
+    color: black;
+    /*font-family: "Tisa", Times, serif;*/
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 20px;
+    font-weight: 50;
+}
+
+#news{
+    font-weight: bold;
+    color: red;
+}
+
+#li-important{
+    font-weight: bold;
+    color: red;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 15px 30px;
+}
+
