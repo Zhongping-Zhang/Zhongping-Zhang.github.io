@@ -13,11 +13,9 @@ body {    /*body部分文字格式*/
     background-color: black;
     color: white;    
 }
-/*
 .navbar .nav>li>a:focus {
     color: black;
 }
-*/
 .navbar .nav>li>a:hover { /*navbar 被选定时字体颜色*/
     color: black;
 }
