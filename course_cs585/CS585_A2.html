@@ -1,0 +1,204 @@
+<html>
+<head>
+<title> CS585 A2 Zhongping Zhang  </title>
+<style>
+<!--
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<center>
+<a href="http://www.bu.edu"><img border="0" src="http://www.cs.bu.edu/fac/betke/images/bu-logo.gif"
+width="119" height="120"></a>
+</center>
+
+<h1>Assignment Title</h1>
+<p> 
+ CS 585 HW 2 <br>
+ Zhongping Zhang<br>
+<!-- Your teammate names. <br>-->
+ 02/16/2021 
+</p>
+
+<div class="main-body">
+<hr>
+<h2> Problem Definition </h2>
+<p>
+The target of this homework is to design and implement algorithms that can recognize hand shapes or gestures and create a graphical display that responds to the recognition of the hand shapes or gestures. The result is useful because the algorithms can be applied on videos to recognize the information expressed by gestures or hand shapes. If the system works perfectly, it can save people from the heavy work of checking the videos. Since our method is based on skin color detection, we need to make the assumption that the background does not contain many segments of skin color. We also need to make the assumption that the background is supplied with appropriate natural light because of the sensitivity of template matching. 
+</p>
+
+<hr>
+<h2> Method and Implementation </h2>
+<p>
+We mainly applied the following techniques in this project:  <br>
+1. horizontal and vertical projections to find bounding boxes of "movement blobs" or "skin-color blobs" <br>
+2. size and center of region of interest <br>
+3. template matching <br>
+4. frame-to-frame differencing: D’(x,y,t) = |I(x,y,t)-I(x,y,t-1)| <br>
+5. skin-color detection (e.g., thresholding red and green pixel values) <br>
+<br>
+Specifically, the video is read frame by frame. For each frame, we used skin-color detection to extract the region of interest (ROI). Then, ROI is compared with templates to recognize the gestures or hand shapes. In this experiment, the method can recognize 4 hand shapes and 1 gestures, which are rock, six, thumbup, thumbdown, and shaking hand respectively. For hand shape recognition, 2 templates are provided for each hand shape and the template with highest NCC output will be chosen as the final result. The gesture recogination is based on frame-to-frame differencing. To extract the ROI from the template images, we used horizontal and vertical projections to find the bounding boxes. To extract the ROI from the videos, since the background can be much more complex than templates, we used cv2.findContours() functions to determine the ROI.
+</p>
+
+<p>
+<ul>
+    <li><b>skin_detect</b>(src, close=False, kernel_size=0) : skin-color detection <br></li>
+    <li><b>crop_template</b>(template_binary,mask,offset=20), <b>get_boundingbox</b>(frame, mask): horizontal and vertical projections to find bounding boxes of "movement blobs" or "skin-color blobs" <br></li>
+    <li><b>NCC</b>(subimage, template), <b>template_matching</b>(cropped_img): template matching <br></li>
+    <li><b>difference</b>(first,second, threshold = 50): frame-to-frame differecing <br></li>
+    <li><b>size</b>, 
+        <b>center_coordinate</b>: size and center of regoin of interest</li>
+</ul>
+</p>
+
+<hr>
+<h2>Experiments</h2>
+<p>
+    In this system, we provided two ways to read data. The first ways is to load data from a video and the second way is to use the front camera of the laptop to record the real-time data. We applied 2 different templates (shown below) for hand shapes. The performance of the system is mainly evaluated by human eyes and confusion matrix. To demonstrate the performance of our method, we provide a demo video "demo.mp4". The outputs of the demo video are saved as "demo_output.avi", "demo_output_skin_mask.avi", and "demo_output_frame_diff.avi".
+</p>
+
+<table>
+<!--<tr><td colspan=3><center><h3>Templates</h3></center></td></tr>-->
+<tr>
+<td> </td><td> Front </td> <td> Back </td> 
+</tr>
+<tr>
+  <td> Rock </td> 
+  <td> <img src="images/rock_front.jpg" width="150"> </td> 
+  <td> <img src="images/rock_back.jpg" width="150"> </td>
+</tr> 
+<tr>
+  <td> Six </td> 
+  <td> <img src="images/six_front.jpg" width="150"> </td> 
+  <td> <img src="images/six_back.jpg" width="150"> </td>
+</tr> 
+<tr>
+  <td> Thumbup </td> 
+  <td> <img src="images/thumbup_front.jpg" width="150"> </td> 
+  <td> <img src="images/thumbup_back.jpg" width="150"> </td>
+</tr> 
+<tr>
+  <td> Thumbdown </td> 
+  <td> <img src="images/thumbdown_front.jpg" width="150"> </td> 
+  <td> <img src="images/thumbdown_back.jpg" width="150"> </td>
+</tr> 
+</table>
+    
+    
+
+
+
+<hr>
+<h2> Results</h2>
+    
+<table>
+<tr><td colspan=4><center><h3>Screenshoots</h3></center></td></tr> 
+
+<tr>
+    <th> rock </th> 
+    <td> <img src="images/rock_result.png" height="550" width="350"> </td> 
+    <th> six </th> 
+    <td> <img src="images/six_result.png" height="550" width="350"> </td> 
+</tr> 
+<tr>
+    <th> thumbup (shaking hand)</th> 
+    <td> <img src="images/thumbup_result.png" height="550" width="350"> </td> 
+    <th> thumbdown (shaking hand)</th> 
+    <td> <img src="images/thumbdown_result.png" height="550" width="350"> </td> 
+</tr> 
+</table>
+
+<table>
+<tr><td colspan=2><center><h3>Videos</h3></center></td></tr> 
+
+<tr>
+    <th> Hand Shapes and Gestures Recognition</th>
+    <td> <iframe width="560" height="315" src="https://www.youtube.com/embed/j9Q78aZJnu0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </td>  <!--output-->
+</tr>
+<tr>
+    <th> Skin Color Detection </th>
+    <td> <iframe width="560" height="315" src="https://www.youtube.com/embed/j_upGxw2s-I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </td>  <!--skin color-->
+</tr>
+<tr>
+    <th> Frame-to-frame Difference</th> 
+    <td> <iframe width="560" height="315" src="https://www.youtube.com/embed/r8FwTJJIsJg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </td>  <!--frame diffrence-->
+</tr> 
+</table>
+
+<br>
+<p>Confusion matrix for hand shape recognition</p>
+<table border="1">
+<tr><th>Hand Shape</th><th>Rock</th><th>Six</th><th>Thumbup</th><th>Thumbdown</th></tr>
+<tr><th>Rock</th><td>10</td><td>4</td><td>1</td><td>2</td></tr>
+<tr><th>Six</th><td>0</td><td>6</td><td>0</td><td>0</td></tr>
+<tr><th>Thumbup</th><td>0</td><td>0</td><td>7</td><td>0</td></tr>
+<tr><th>Thumbdown</th><td>0</td><td>0</td><td>2</td><td>8</td></tr>
+</table>
+
+<p>Confusion matrix for motion recognition (shaking hand)</p>
+<table border="1">
+<tr><th>Motion</th><th>Shaking</th><th>stable</th></tr>
+<tr><th>Shaking</th><td>10</td><td>0</td></tr>
+<tr><th>Stable</th><td>0</td><td>10</td></tr>
+</table>    
+
+
+<hr>
+<h2> Discussion </h2>
+
+<p> 
+<ul>
+<li>Our system can recognize 4 hand shapes (rock, six, thumbup, thumbdown) and 1 gesture (shaking hand) in real-time. The result looks promising when the background and angles are appropriate. </li>
+<li>The major downside of our method is that it is sensitive to the environment, such as lightness, angles of hands, and color of background. The major limitation is that the input video should include one hand from the front view or back view, and the color of background should be different from skin color.</li>
+<li>A potential improvement is that we can provide more templates for hand shapes, not just the front view and back view. It can help the system become more robust. We can also develop more effective algorithms to recognize the hand from the videos, not only according to color, but also based on shape, motion, and so on.</li>
+
+</ul>
+</p>
+    
+<hr>
+<h2> Conclusions </h2>
+<p>
+In this assignment, we build a system which can recognize hand shapes and gestures well under certain conditions. Generally, the preliminary results look good, but the template matching method make the system be sensitive to the interference of background, lightness, angles and so on. To make the system more practical, we need to develop a more robust system. The potential improvements include but are not limited to collecting more templates, including more preprocessing methods, collecting a dataset to develop deep learning frameworks.
+
+</p>
+
+
+<hr>
+<h2> Credits and Bibliography </h2>
+<p>
+    This work is based on content I learned in the class. Specifically, I refered these two links <br>
+    https://www.cs.bu.edu/faculty/betke/cs585/restricted/lectures/cs585-Feb9-2021.pdf <br>
+    http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/OWENS/LECT2/node3.html
+    
+</p>
+<hr>
+</div>
+</body>
+
+
+
+</html>

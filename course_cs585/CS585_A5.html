@@ -1,0 +1,181 @@
+<html>
+<head>
+<title> CS585 HW 5 Zhongping Zhang </title>
+<style>
+<!--
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<center>
+<a href="http://www.bu.edu"><img border="0" src="http://www.cs.bu.edu/fac/betke/images/bu-logo.gif"
+width="119" height="120"></a>
+</center>
+
+<h1>CS 585 HW 5 Part 2</h1>
+<p> 
+ Zhongping Zhang <br>
+ <!-- Your teammate names. <br>-->
+ Teammate: Yiwen Gu <br>
+ 04/08/2021 
+</p>
+
+<div class="main-body">
+<hr>
+<h2> Problem Definition </h2>
+<p>
+The goal of this homework is to design and implement algorithms to track multiple objects.
+</p>
+
+<hr>
+<h2> Method and Implementation </h2>
+<p>
+We mainly applied the following techniques in this project:  <br>
+1. alpha-beta filter (bat) <br>
+2. greedy matching algorithm (bat) <br>
+3. kalman filter (cell) <br>
+4. hungarian algorithm (cell) <br>
+<br>
+There are 3 major steps for bat dataset: <br>
+(1) Get the bat locations of the current frame from the given segmentation for the bat dataset. <br>
+(2) Predict the bat locations of the next frame according to alpha-beta filter. <br>
+(3) Apply greedy algorithm to match the nearest bat in the next frame. <br>
+<br>
+There are 3 major steps for cell dataset: <br>
+(1) Perform segmentation to detect all the cells in each given image, and save center locations of all the detected cells and image mask as well. <br>
+(2) Predict the cell locations in the next frame using kalman filter. <br>
+(3) Apply Hungarian algorithm for cells assignment. <br>
+</p>
+
+<hr>
+<h2>Experiments</h2>
+<p>Here we show successful and challenging examples of the bat tracking algorithm. 
+Panel A is the successful case of multiple objects with various velocities.
+Panel B is the bad case where multiple objects occlude or merge together. 
+</p>
+<table style="align-content: center">
+<tr>
+  <td style="text-align: center;">A: Successful Case</td>
+  <td style="text-align: center;">B: Challenging Case</td>
+<!--  <td style="text-align: center;">C: Filtered</td> -->
+</tr>
+<tr>
+  <td> <img src="images/bat_good.png" width="300">  </td> 
+  <td> <img src="images/bat_bad.png" width="300"> </td> 
+<!--  <td> <img src="images/cell1272_bbx2.png" width="300"> </td>-->
+</tr> 
+</table>
+
+<hr>
+<h2> Results</h2>
+
+<table>
+<tr><td colspan=2><center><h3>Videos</h3></center></td></tr> 
+
+<tr>
+    <th> Bat dataset</th>
+    <td> <iframe width="560" height="315" src="https://www.youtube.com/embed/gHudJ3enDgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </td>  
+    <!--output-->
+</tr>
+<tr>
+    <th> Cell dataset </th>
+    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/liCZGiy6puA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </td>
+    <!-- <td> <iframe width="560" height="315" src="https://drive.google.com/file/d/1D8jeMHvVOM-0PaVc5gXAPEcS2iYxEP5r/view?usp=sharing" title="Gdrive video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  </td>  -->
+
+</tr>
+
+</table>
+
+<br>
+
+<hr>
+<h2>Discussion</h2>
+<p>
+1. Show your tracking results on some portion of the sequence. In addition to showing your tracking results on an easy portion of the data, identify a challenging situation where your tracker succeeds, and a challenging situation where your tracker fails. <br>
+<!-- For bats, <br>
+ -->Our tracking results are mostly successful and are presented by the videos above. When there are multiple objects with various velocities in frames, our algorithm works well. When there are multiple objects merge (touch or occlude) together, our algorithm sometimes fails because it consider the merged objects as a single object.
+ <br>
+<!-- For cells, <br> -->
+<br>
+A Failed Case:
+<table style="align-content: center">
+<tr>
+  <td style="text-align: center;">bad case</td>
+  <td style="text-align: center;">marked bad case</td>
+  <td style="text-align: center;"> </td>
+</tr>
+<tr>
+  <td> <img src="images/bat_bad.png" width="300">   </td> 
+  <td> <img src="images/bat_bad_marked.jpg" width="300"> </td>
+  <td style="text-align: left; width: 300">As shown in this example, bats are merged in the red bounding box,  and the bats are detected as one.</td>
+</tr> 
+</table>
+
+<br>
+
+2. How do you decide to begin new tracks and terminate old tracks as the objects enter and leave the field of view? <br>
+If an object in the current frame does not exist in the last frame, we consider this case as a new object enter the field of view. <br>
+If an object of the last frame cannot find the nearest neighbor in the current frame (for example, the objects in the current frame are all matched with other objects in the last frame), we consider this case as the object leave the field of view. <br>
+<br>
+    
+3. What happens with your algorithm when objects touch and occlude each other, and how could you handle this so you do not break track? <br>
+For bat dataset, if two objects touch or occlude each other, our algorithm will consider them as a single object. Same case for the cells. In fact, for cell dataset, the most challenging part is segmentmentation instead of tracking. When two cells touch, they are masked as one object. As a result, our algorithm fails in this case. To address this issue in future, we first need to improve the detector. We can train a neural network to detect individual bat or cell. <!-- We might be able to set a threshold for predicted values, if the predicted positions of two objects are less than the threshold, the algorithm should consider tham as two separate objects.  --><br> 
+
+<br>
+    
+4. What happens when there are spurious detections that do not connect with other measurements in subsequent frames? <br>
+In this case, the spurious detections will be ignored and removed in the subsequent frames. <br>
+<br>
+
+5. What are the advantages and drawbacks of different kinematic models: Do you need to model the velocity of the objects, or is it sufficient to just consider the distances between the objects in subsequent frames?    <br>
+We need to model the velocity of the objects so that the predicted values are more accurate. It might be sufficient to just consider the distances between the objects in subsequent frames if the velocities are pretty small and we just consider two frames at a time. However, it is insufficient in most cases such as high velocities and using multiple hypothesis tracking.
+    
+<br>
+</p>
+
+
+<hr>
+<h2> Credits and Bibliography </h2>
+<p> 
+  Zhongping and Yiwen complete the code and report together. Zhongping works more on bat dataset and Yiwen works more on cell dataset. <br>
+
+  Some reference: <br>
+  For labelling connected components: https://www.pyimagesearch.com/2021/02/22/opencv-connected-component-labeling-and-analysis/ <br>
+  For alpha-beta filter: https://en.wikipedia.org/wiki/Alpha_beta_filter <br>
+  For kalman filter:
+  https://docs.opencv.org/master/dd/d6a/classcv_1_1KalmanFilter.html#aa710d2255566bec8d6ce608d103d4fa7<br>
+  For Hungarian assignment:
+  https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.optimize.linear_sum_assignment.html
+    
+</p>
+<hr>
+</div>
+</body>
+
+
+
+</html>

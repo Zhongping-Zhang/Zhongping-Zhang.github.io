@@ -1,0 +1,101 @@
+<html>
+<head>
+<title> CS585 A1 Zhongping Zhang  </title>
+<style>
+<!--
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<center>
+<a href="http://www.bu.edu"><img border="0" src="http://www.cs.bu.edu/fac/betke/images/bu-logo.gif"
+width="119" height="120"></a>
+</center>
+
+<h1>CS585 Assignment 1</h1>
+<p> 
+Zhongping Zhang <br>
+02/03/2021
+</p>
+
+    
+<div class="main-body">
+<hr>
+<h2> Problem Description </h2>
+<p>
+<ul>
+    <li>1. Create a grayscale image of your face by converting your color image using one of the conversions we discussed in class last week.</li>
+    <li>2. Come up with another way of manipulating your face that produces an interesting output. In this question, I use Sobel operator to detect the edge of the gray image.</li>
+</ul>
+</p>
+
+<hr>
+<h2> Algorithm </h2>
+<p>
+<ul>
+    <li>1. Calculate the weighted sum of RGB channels to get the gray image. The weights are 0.299, 0.587, 0.114 for red, green, and blue channels respectively. </li>
+    <li>2. I use Sobel operator to calculate the vertical edge of the gray image. The specific value of Sobel operator is [[1, 2, 1], [0, 0, 0], [-1,-2,-1]].</li>
+
+</ul>
+</p>
+
+
+
+
+
+<hr>
+<h2> Results</h2>
+
+<p>
+<table>
+<!--<tr><td colspan=3><center><h3>Results</h3></center></td></tr>-->
+<tr>
+<td>  </td><td> Source Image </td> <td> Target Image</td> 
+</tr>
+<tr>
+  <td> rgb2gray </td> 
+  <td> <img src="images/selfie.jpg" height="355" width="200"> </td> 
+  <td> <img src="images/gray_selfie.jpg" height="355" width="200"> </td>
+</tr> 
+<tr>
+  <td> Sobel operator </td> 
+  <td> <img src="images/selfie.jpg" height="355" width="200"> </td> 
+  <td> <img src="images/edge_selfie.jpg" height="355" width="200"> </td>
+</tr> 
+ 
+</table>
+</p>
+
+
+
+<hr>
+</div>
+</body>
+
+
+
+</html>

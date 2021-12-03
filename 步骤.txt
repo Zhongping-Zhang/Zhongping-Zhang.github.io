@@ -1,5 +1,5 @@
-git add .
-git commmit -m "first version"
+﻿git add .
+git commit -m "first version"
 git push
 
 
